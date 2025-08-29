@@ -1,0 +1,59 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.1em;
+    margin-bottom: 0.5em;
+}
+
+.cont2 {
+    background: white;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background: linear-gradient(120deg, #dedfe1 0%, #ffffff 100%);
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.card {
+    background: rgba(20, 20, 30, 0.95);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    background: #23243a;
+    color: #fff;
+}
+.btn-outline-light:hover, .btn-outline-light:focus {
+    background: #fff;
+    color: #111;
+    border-color: #fff;
+}
+
+.cont2 {
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+body{
+    height: 100%;
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin-left: 25%;
+    padding: 20px;
+    background-color: black
+}
