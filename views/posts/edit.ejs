@@ -1,0 +1,88 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container py-5" style="min-height: 80vh; font-family: 'Inter', sans-serif;">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow-lg border-0 bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+                    <h1 class="text-center mb-4" style="font-family: 'Inter', sans-serif; letter-spacing: 2px; font-weight: 700;">
+                        EDIT POST
+                    </h1>
+
+                    <form action="/posts/<%= post.id %>" method="POST">
+                        <div class="mb-3">
+                            <label for="title" class="form-label text-uppercase" style="letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                                Title
+                            </label>
+                            <input type="text" class="form-control bg-secondary text-white border-0"
+                                   id="title" name="title" value="<%= post.title %>" required
+                                   style="font-family: 'Inter', sans-serif;">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="author" class="form-label text-uppercase" style="letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                                Author
+                            </label>
+                            <input type="text" class="form-control bg-secondary text-white border-0"
+                                   id="author" name="author" value="<%= post.author %>" required
+                                   style="font-family: 'Inter', sans-serif;">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="category" class="form-label text-uppercase" style="letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                                Category
+                            </label>
+                            <input type="text" class="form-control bg-secondary text-white border-0"
+                                   id="category" name="category" value="<%= post.category %>" required
+                                   style="font-family: 'Inter', sans-serif;">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="featuredImageUrl" class="form-label text-uppercase" style="letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                                Featured Image URL
+                            </label>
+                            <input type="url" class="form-control bg-secondary text-white border-0"
+                                   id="featuredImageUrl" name="featuredImageUrl"
+                                   value="<%= post.featuredImageUrl %>"
+                                   style="font-family: 'Inter', sans-serif;">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="excerpt" class="form-label text-uppercase" style="letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                                Excerpt (Short Description)
+                            </label>
+                            <textarea class="form-control bg-secondary text-white border-0"
+                                      id="excerpt" name="excerpt" rows="2"
+                                      style="font-family: 'Inter', sans-serif;"><%= post.excerpt %></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="content" class="form-label text-uppercase" style="letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                                Content
+                            </label>
+                            <textarea class="form-control bg-secondary text-white border-0"
+                                      id="content" name="content" rows="12" required
+                                      style="font-family: 'Inter', sans-serif;"><%= post.content %></textarea>
+                            <small class="text-muted" style="font-family: 'Inter', sans-serif;">
+                                Tip: You can use HTML tags like &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt; for formatting
+                            </small>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <button type="submit" class="btn btn-outline-light btn-lg fw-bold flex-grow-1"
+                                    style="letter-spacing: 2px; border-radius: 2rem; font-family: 'Inter', sans-serif;">
+                                UPDATE POST
+                            </button>
+                            <a href="/posts/<%= post.id %>" class="btn btn-outline-secondary btn-lg fw-bold"
+                               style="letter-spacing: 2px; border-radius: 2rem; font-family: 'Inter', sans-serif;">
+                                CANCEL
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

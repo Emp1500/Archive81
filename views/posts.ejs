@@ -1,0 +1,112 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container px-4 py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="pb-2 stylish-heading text-start text-uppercase fw-bold" style="letter-spacing: 2px; border-bottom: 3px solid #000;">
+            ALL BLOG POSTS <span class="emoji">📚</span>
+        </h2>
+        <a href="/posts/new" class="btn btn-dark btn-lg rounded-pill px-4 py-2 fw-semibold shadow-sm">
+            Create New Post
+        </a>
+    </div>
+
+    <% if (posts.length === 0) { %>
+        <div class="alert alert-info text-center" style="font-family: 'Inter', sans-serif;">
+            <h4>No posts yet!</h4>
+            <p>Be the first to create a post.</p>
+        </div>
+    <% } else { %>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 justify-content-center">
+            <% posts.forEach(post => { %>
+                <div class="col d-flex justify-content-center">
+                    <div class="card border-0 shadow-lg text-white h-100"
+                         style="background-image: url('<%= post.featuredImageUrl %>'); background-size: cover; background-position: center; width: 370px; max-width: 100%; min-height: 500px; border-radius: 18px; overflow: hidden;">
+                        <div class="card-body d-flex flex-column align-items-end p-3 h-100" style="background: linear-gradient(135deg, rgba(160,163,164,0.85) 0%, rgba(165,168,168,0.85) 100%);">
+                            <div class="mb-3">
+                                <div class="rounded-circle bg-gradient-primary d-flex align-items-center justify-content-center shadow" style="width:70px; height:70px; background: linear-gradient(135deg, #23272a 60%, #181a1b 100%); border: 2px solid #fff;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#fff" class="bi bi-file-text" viewBox="0 0 16 16">
+                                        <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
+                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="badge bg-dark mb-2 align-self-start" style="font-family: 'Inter', sans-serif; letter-spacing: 0.5px; font-size: 0.75rem;">
+                                <%= post.category %>
+                            </span>
+                            <h3 class="fs-5 fw-bold text-start mb-2 text-uppercase w-100" style="font-family: 'Inter', sans-serif; word-wrap: break-word;">
+                                <%= post.title %>
+                            </h3>
+                            <p class="feature-desc text-start small mb-2 w-100" style="font-family: 'Inter', sans-serif; line-height: 1.5; font-size: 0.875rem; word-wrap: break-word;">
+                                <%= post.excerpt.substring(0, 100) %>...
+                            </p>
+                            <p class="text-white small mb-3 text-start w-100" style="font-family: 'Inter', sans-serif; opacity: 0.9; font-size: 0.8rem;">
+                                By <strong><%= post.author %></strong> • <%= post.createdAt.toLocaleDateString() %>
+                            </p>
+
+                            <div class="mt-auto w-100 d-flex flex-column" style="gap: 0.5rem;">
+                                <a href="/posts/<%= post.id %>" class="btn btn-outline-light rounded-pill py-2 fw-semibold shadow-sm text-bg-dark" style="border-width: 2px; letter-spacing: 0.5px; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    Read More
+                                </a>
+                                <div class="d-flex w-100" style="gap: 0.5rem;">
+                                    <a href="/posts/<%= post.id %>/edit" class="btn btn-outline-light rounded-pill btn-sm" style="border-width: 1px; flex: 1; font-size: 0.75rem; padding: 0.375rem 0.5rem;">
+                                        Edit
+                                    </a>
+                                    <form action="/posts/<%= post.id %>/delete" method="POST"
+                                          onsubmit="return confirm('Are you sure you want to delete this post?');"
+                                          style="flex: 1; margin: 0; padding: 0;">
+                                        <button type="submit" class="btn btn-outline-danger rounded-pill btn-sm w-100" style="border-width: 1px; background: rgba(220,53,69,0.9); color: white; font-size: 0.75rem; padding: 0.375rem 0.5rem;">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } %>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+        opacity: 1;
+    }
+
+    .card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important;
+    }
+
+    .rounded-circle {
+        border: 2px solid #fff;
+        background: linear-gradient(135deg, #23272a 60%, #181a1b 100%);
+    }
+
+    .btn-outline-light,
+    .btn-outline-danger {
+        border-width: 2px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .emoji {
+        font-size: 1.2em;
+        vertical-align: middle;
+    }
+
+    .stylish-heading {
+        font-family: 'Inter', sans-serif !important;
+        letter-spacing: 2px;
+        border-width: 3px !important;
+        border-color: #000 !important;
+    }
+
+    .feature-desc {
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 0.01em;
+    }
+</style>
+
+<%- include('partials/footer.ejs') %>

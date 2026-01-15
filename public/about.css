@@ -1,59 +1,122 @@
-body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    color: #333;
-}
-
-h1 {
-    font-size: 2.1em;
-    margin-bottom: 0.5em;
-}
+/* ==================== ABOUT PAGE STYLES ==================== */
 
 .cont2 {
-    background: white;
-    padding: 2em;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 3rem 2.5rem;
+    background: var(--primary-white);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    transition: all 0.3s ease;
 }
 
-body {
-    background: linear-gradient(120deg, #dedfe1 0%, #ffffff 100%);
-    font-family: 'Montserrat', Arial, sans-serif;
-}
-.card {
-    background: rgba(20, 20, 30, 0.95);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    border: 1px solid rgba(255,255,255,0.08);
-}
-.form-control:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-    background: #23243a;
-    color: #fff;
-}
-.btn-outline-light:hover, .btn-outline-light:focus {
-    background: #fff;
-    color: #111;
-    border-color: #fff;
+.cont2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px var(--shadow-dark);
 }
 
-.cont2 {
-    padding: 2em;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
+/* Profile Image */
 .profile {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    border: 4px solid var(--primary-black);
+    transition: all 0.4s ease;
+    object-fit: cover;
 }
 
-body{
-    height: 100%;
-    display: flex;
-    font-family: Arial, sans-serif;
-    margin-left: 25%;
-    padding: 20px;
-    background-color: black
+.profile:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 35px var(--shadow-dark);
+}
+
+/* About Page Typography */
+.cont2 h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-black);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.cont2 p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--dark-gray);
+    text-align: justify;
+}
+
+/* About Page Button */
+.cont2 .btn {
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.cont2 .btn-dark:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px var(--shadow-medium);
+}
+
+/* Decorative Elements */
+.position-relative {
+    position: relative;
+}
+
+.text-muted {
+    color: var(--medium-gray) !important;
+}
+
+.bg-body {
+    background-color: var(--off-white) !important;
+}
+
+.border-dashed {
+    border-style: dashed !important;
+    border-color: var(--light-gray) !important;
+}
+
+/* Responsive Design for About Page */
+@media (max-width: 768px) {
+    .cont2 {
+        margin: 2rem 1rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .cont2 h1 {
+        font-size: 2rem;
+    }
+
+    .cont2 p {
+        font-size: 1rem;
+    }
+
+    .profile {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cont2 {
+        padding: 1.5rem 1rem;
+    }
+
+    .cont2 h1 {
+        font-size: 1.75rem;
+    }
+
+    .profile {
+        width: 130px;
+        height: 130px;
+    }
+
+    .cont2 .btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
 }

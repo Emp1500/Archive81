@@ -1,0 +1,64 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="bg-light text-secondary px-4 py-5 text-left" style="font-family: 'Inter', sans-serif;">
+    <div class="py-5">
+        <!-- Featured Image -->
+        <div class="text-center mb-4">
+            <img src="<%= post.featuredImageUrl %>"
+                 alt="<%= post.title %>"
+                 class="img-fluid rounded shadow-lg"
+                 style="max-width: 800px; max-height: 400px; object-fit: cover;">
+        </div>
+
+        <!-- Category and Title -->
+        <div class="text-center mb-4">
+            <span class="badge bg-dark mb-3 fs-6" style="font-family: 'Inter', sans-serif; letter-spacing: 0.5px;">
+                <%= post.category %>
+            </span>
+            <h1 class="display-5 fw-bold text-dark" style="font-family: 'Inter', sans-serif; letter-spacing: 0.01em;">
+                <%= post.title %>
+            </h1>
+            <p class="text-muted" style="font-family: 'Inter', sans-serif; font-size: 1rem;">
+                By <strong><%= post.author %></strong> on <%= post.createdAt.toLocaleDateString() %>
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="col-lg-8 mx-auto">
+            <div class="fs-5 mb-4" style="font-family: 'Inter', sans-serif; line-height: 1.6; letter-spacing: 0.01em;">
+                <%- post.content %>
+            </div>
+
+            <p class="author fw-bold text-dark text-center mt-5" style="font-family: 'Inter', sans-serif;">
+                - <%= post.author %>
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="container mt-5">
+                <div class="row justify-content-center g-3">
+                    <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+                        <a href="/posts" class="btn btn-dark rounded-pill px-4 py-2 fw-semibold shadow-sm w-100" style="max-width: 250px;">
+                            Back to All Posts
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+                        <a href="/posts/<%= post.id %>/edit" class="btn btn-outline-secondary rounded-pill px-4 py-2 fw-semibold w-100" style="max-width: 250px;">
+                            Edit Post
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+                        <form action="/posts/<%= post.id %>/delete" method="POST"
+                              onsubmit="return confirm('Are you sure you want to delete this post?');"
+                              class="w-100" style="max-width: 250px;">
+                            <button type="submit" class="btn btn-outline-danger rounded-pill px-4 py-2 fw-semibold w-100">
+                                Delete Post
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

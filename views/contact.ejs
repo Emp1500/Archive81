@@ -1,40 +1,93 @@
 <%- include('partials/header.ejs') %>
-<link rel="stylesheet" href="/Capstone 3/public/about.css">
+
 <div class="container py-5" style="min-height: 80vh;">
     <div class="row justify-content-center">
-        <div class="col-md-7 col-lg-6">
-            <div class="card shadow-lg border-0 bg-dark text-white" style="border-radius: 1rem;">
+        <div class="col-md-8 col-lg-7">
+            <div class="card shadow-lg border-0 text-white" style="border-radius: 1.5rem; background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);">
                 <div class="card-body p-5">
-                    <h1 class="text-center mb-4" style="font-family: 'Orbitron', 'Montserrat', Arial, sans-serif; letter-spacing: 2px; font-weight: 700;">
+                    <h1 class="text-center mb-5" style="letter-spacing: 3px; font-weight: 800; font-size: 2.5rem;">
                         CONTACT ME
                     </h1>
+
                     <form action="/contact" method="POST">
-                        <div class="mb-3">
-                            <label for="name" class="form-label text-uppercase" style="letter-spacing: 1px;">Name</label>
-                            <input type="text" class="form-control bg-secondary text-white border-0" id="name" name="name" required>
+                        <div class="mb-4">
+                            <label for="name" class="form-label fw-semibold" style="letter-spacing: 1px; font-size: 1.1rem;">
+                                Your Name
+                            </label>
+                            <input type="text"
+                                   class="form-control form-control-lg border-2"
+                                   id="name"
+                                   name="name"
+                                   required
+                                   placeholder="John Doe"
+                                   style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3); border-radius: 10px;">
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label text-uppercase" style="letter-spacing: 1px;">Email</label>
-                            <input type="email" class="form-control bg-secondary text-white border-0" id="email" name="email" required>
+
+                        <div class="mb-4">
+                            <label for="email" class="form-label fw-semibold" style="letter-spacing: 1px; font-size: 1.1rem;">
+                                Email Address
+                            </label>
+                            <input type="email"
+                                   class="form-control form-control-lg border-2"
+                                   id="email"
+                                   name="email"
+                                   required
+                                   placeholder="john@example.com"
+                                   style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3); border-radius: 10px;">
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label text-uppercase" style="letter-spacing: 1px;">Message</label>
-                            <textarea class="form-control bg-secondary text-white border-0" id="message" name="message" rows="4" required></textarea>
+
+                        <div class="mb-4">
+                            <label for="message" class="form-label fw-semibold" style="letter-spacing: 1px; font-size: 1.1rem;">
+                                Your Message
+                            </label>
+                            <textarea class="form-control form-control-lg border-2"
+                                      id="message"
+                                      name="message"
+                                      rows="5"
+                                      required
+                                      placeholder="Write your message here..."
+                                      style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3); border-radius: 10px;"></textarea>
                         </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-outline-light btn-lg fw-bold" style="letter-spacing: 2px; border-radius: 2rem; transition: background 0.3s;">
-                                SEND
+
+                        <div class="d-grid mt-5">
+                            <button type="submit"
+                                    class="btn btn-light btn-lg fw-bold"
+                                    style="letter-spacing: 2px; border-radius: 50px; padding: 1rem; font-size: 1.1rem; transition: all 0.3s ease;">
+                                SEND MESSAGE
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
+
             <div class="text-center mt-4">
+                <p class="text-muted">
+                    <small>I'll get back to you as soon as possible!</small>
+                </p>
             </div>
         </div>
     </div>
 </div>
-<link href="https://fonts.googleapis.com/css?family=Orbitron:700|Montserrat:400,700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    .form-control:focus {
+        background: rgba(255,255,255,0.15) !important;
+        color: white !important;
+        border-color: rgba(255,255,255,0.6) !important;
+        box-shadow: 0 0 0 0.2rem rgba(255,255,255,.25) !important;
+    }
+
+    .form-control::placeholder {
+        color: rgba(255,255,255,0.5);
+    }
+
+    .btn-light:hover {
+        background-color: var(--primary-black) !important;
+        color: var(--primary-white) !important;
+        border-color: var(--primary-white) !important;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(255,255,255,0.3);
+    }
+</style>
 
 <%- include('partials/footer.ejs') %>
